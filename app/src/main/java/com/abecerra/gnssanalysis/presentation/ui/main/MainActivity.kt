@@ -83,12 +83,21 @@ class MainActivity : BaseGnssActivity(), MainActivityInput {
     override fun getNotificationPendingIntent(): PendingIntent {
         val notifIntent = Intent(this, MainActivity::class.java)
         notifIntent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
-        return PendingIntent.getActivity(
-            this,
-            0,
-            notifIntent,
-            PendingIntent.FLAG_UPDATE_CURRENT
-        )
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.S) {
+            return PendingIntent.getActivity(
+                this,
+                0,
+                notifIntent,
+                PendingIntent.FLAG_IMMUTABLE
+            )
+        } else {
+            return PendingIntent.getActivity(
+                this,
+                0,
+                notifIntent,
+                PendingIntent.FLAG_UPDATE_CURRENT
+            )
+        }
     }
 
     override fun getActiveListeners(): List<GnssServiceOutput.GnssEventsListener> {

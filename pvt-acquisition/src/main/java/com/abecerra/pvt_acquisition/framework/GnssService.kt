@@ -136,7 +136,7 @@ class GnssService : BaseGnssService(), GnssServiceContract.GnssInteractorOutput,
         }
     }
 
-    override fun onLocationChanged(location: Location?) {
+    override fun onLocationChanged(location: Location) {
         location?.let { loc ->
             referenceLocation = LlaLocation(loc.latitude, loc.longitude, loc.altitude)
             gnssEventsListeners.forEach {
@@ -155,9 +155,9 @@ class GnssService : BaseGnssService(), GnssServiceContract.GnssInteractorOutput,
 
     override fun onStatusChanged(provider: String?, status: Int, extras: Bundle?) {}
 
-    override fun onProviderEnabled(provider: String?) {}
+    override fun onProviderEnabled(provider: String) {}
 
-    override fun onProviderDisabled(provider: String?) {}
+    override fun onProviderDisabled(provider: String) {}
 
     override fun onDestroy() {
         super.onDestroy()
