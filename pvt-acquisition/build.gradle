@@ -2,9 +2,9 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 android {
-    compileSdkVersion 33
+    compileSdk 33
 //    buildToolsVersion "33.0.3"
-
+    namespace 'com.abecerra.pvt_acquisition'
 
     defaultConfig {
         minSdkVersion 24
@@ -25,10 +25,10 @@ android {
                 minifyEnabled false
                 proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
             }
-            production {
-                minifyEnabled false
-                proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-            }
+//            production {
+//                minifyEnabled false
+//                proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+//            }
         }
     }
 

@@ -18,7 +18,7 @@ fun tropoErrorCorrection(elevation: ArrayList<Double>, altitude: ArrayList<Doubl
         if (it < 0.0) 0.0 else it
     }
 
-    if (height.min() ?: 5000.0 < 5000) {
+    if (height.minOrNull() ?: 5000.0 < 5000) {
 
         //Elevation in rad
         val elev = elevation.map {
@@ -45,7 +45,7 @@ fun tropoErrorCorrection(elevation: ArrayList<Double>, altitude: ArrayList<Doubl
 
         for (i in 0 until t.size) {
             val d = hA.map { it - height[i] }
-            val dMinIndex = d.indices.minBy { abs(d[it]) } ?: 0
+            val dMinIndex = d.indices.minByOrNull { abs(d[it]) } ?: 0
             val index = if (d[dMinIndex] > 0) {
                 arrayListOf(dMinIndex - 1, dMinIndex)
             } else {

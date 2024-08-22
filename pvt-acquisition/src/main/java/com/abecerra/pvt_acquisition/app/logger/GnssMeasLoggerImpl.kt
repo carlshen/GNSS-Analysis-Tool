@@ -49,7 +49,7 @@ class GnssMeasLoggerImpl : GnssMeasLogger {
             mFileWriter?.write(VERSION_TAG)
             val manufacturer = Build.MANUFACTURER
             val model = Build.MODEL
-            val fileVersion = (BuildConfig.VERSION_NAME
+            val fileVersion = ("1.0"
                     + " Platform: "
                     + Build.VERSION.RELEASE
                     + " "

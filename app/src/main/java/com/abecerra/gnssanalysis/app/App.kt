@@ -4,10 +4,9 @@ import android.content.Context
 import androidx.multidex.MultiDexApplication
 import com.abecerra.gnssanalysis.BuildConfig
 import com.abecerra.gnssanalysis.app.di.AppModule
+import com.google.firebase.crashlytics.FirebaseCrashlytics
 import org.koin.core.context.startKoin
 import timber.log.Timber
-import com.crashlytics.android.Crashlytics
-import io.fabric.sdk.android.Fabric
 
 class App : MultiDexApplication() {
 
@@ -27,7 +26,7 @@ class App : MultiDexApplication() {
         INSTANCE = this
         initKoin()
         initTimber()
-        Fabric.with(this, Crashlytics())
+        FirebaseCrashlytics.getInstance().setUserId("carl")
     }
 
     private fun initKoin() {
